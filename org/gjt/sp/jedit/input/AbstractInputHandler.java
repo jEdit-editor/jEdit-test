@@ -29,6 +29,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.gjt.sp.jedit.JEditAbstractEditAction;
 import org.gjt.sp.jedit.gui.ShortcutPrefixActiveEvent;
 
@@ -38,7 +41,7 @@ import org.gjt.sp.jedit.gui.ShortcutPrefixActiveEvent;
  * {@link #processKeyEvent(java.awt.event.KeyEvent, int, boolean)}
  * 
  * @author Matthieu Casanova
- * @version $Id$
+ * @version $Id: FoldHandler.java 5568 2006-07-10 20:52:23Z kpouer $
  */
 public abstract class AbstractInputHandler<E extends JEditAbstractEditAction>
 {
@@ -195,7 +198,8 @@ public abstract class AbstractInputHandler<E extends JEditAbstractEditAction>
 	 * @param keyBinding The key binding
 	 * @since jEdit 3.2pre5
 	 */
-	public Object getKeyBinding(String keyBinding)
+	@Nullable
+	public Object getKeyBinding(@Nonnull String keyBinding)
 	{
 		Hashtable current = bindings;
 		StringTokenizer st = new StringTokenizer(keyBinding);
