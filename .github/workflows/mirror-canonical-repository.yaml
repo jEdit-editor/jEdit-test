@@ -6,8 +6,6 @@ name: 'Mirror Canonical Repository'
 on:
   push: {}
   repository_dispatch: {}
-  schedule:
-  - cron: '44 * * * *'
   workflow_dispatch: {}
 jobs:
   mirror_repository:
@@ -19,4 +17,4 @@ jobs:
       run: 'git clone --bare git://git.code.sf.net/p/jedit/jEdit.bak .'
     - id: 'step-1'
       name: 'Push To Mirror Repository'
-      run: 'git push --mirror https://x:${{ github.token }}@github.com/${{ github.repository }}'
+      run: 'git push --mirror https://x:${{ secrets.MIRROR_TOKEN }}@github.com/${{ github.repository }}'
