@@ -11,20 +11,16 @@ import io.github.typesafegithub.workflows.domain.triggers.WorkflowDispatch
 import io.github.typesafegithub.workflows.dsl.expressions.Contexts.secrets
 import io.github.typesafegithub.workflows.dsl.expressions.expr
 import io.github.typesafegithub.workflows.dsl.workflow
-import io.github.typesafegithub.workflows.yaml.ConsistencyCheckJobConfig.Disabled
 
 workflow(
     name = "Mirror Canonical Repository",
     on = listOf(
         Push(),
         RepositoryDispatch(),
-        //TODO
-        //Schedule(triggers = listOf(Cron(minute = "44"))),
+        Schedule(triggers = listOf(Cron(minute = "44"))),
         WorkflowDispatch()
     ),
-    sourceFile = __FILE__,
-    //TODO
-    consistencyCheckJobConfig = Disabled
+    sourceFile = __FILE__
 ) {
     job(
         id = "mirror_repository",
@@ -35,6 +31,7 @@ workflow(
             name = "Clone Canonical Repository",
             command = "git clone --bare git://git.code.sf.net/p/jedit/jEdit.bak ."
         )
+
         val MIRROR_TOKEN by secrets
         run(
             name = "Push To Mirror Repository",
