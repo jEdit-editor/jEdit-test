@@ -1,0 +1,30 @@
+jEdit 5.8 version history
+       (changes since jEdit 5.7.0)
+:encoding=UTF-8:
+
+{{{ Version 5.8pre1
+
+Thanks to Björn Kautler for contributing to this release.
+
+{{{ Bug Fixes
+
+
+}}}
+{{{ Miscellaneous
+
+
+}}}
+{{{ API Changes
+
+
+}}}
+{{{ Editing
+
+
+}}}
+
+}}}
+
+jEdit buffer local properties:
+:maxLineLen=80:wrap=hard:autoIndent=simple:noTabs=true:indentSize=2:tabSize=2:
+:folding=explicit:collapseFolds=2:
