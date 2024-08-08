@@ -35,6 +35,7 @@ workflow(
             name = "Clone Canonical Repository",
             command = "git clone --bare git://git.code.sf.net/p/jedit/jEdit.bak ."
         )
+
         val MIRROR_TOKEN by secrets
         run(
             name = "Push To Mirror Repository",
